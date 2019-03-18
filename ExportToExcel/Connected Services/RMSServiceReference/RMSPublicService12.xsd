@@ -1,0 +1,429 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.Data.SerialisedClasses" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.Data.SerialisedClasses" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="https://api.rms.com.au/RMSPublicService/RMSPublicService.ServiceLibrary.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.Accounting" />
+  <xs:import schemaLocation="https://api.rms.com.au/RMSPublicService/RMSPublicService.ServiceLibrary.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.Data.Manager" />
+  <xs:complexType name="SystemLabelsScreenData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AdditionalTariff1_IncludeInOccupancyCount" type="xs:boolean" />
+      <xs:element minOccurs="0" name="AdditionalTariff1_NonTaxable" type="xs:boolean" />
+      <xs:element minOccurs="0" name="AdditionalTariff2_IncludeInOccupancyCount" type="xs:boolean" />
+      <xs:element minOccurs="0" name="AdditionalTariff2_NonTaxable" type="xs:boolean" />
+      <xs:element minOccurs="0" name="AdditionalTariff3_IncludeInOccupancyCount" type="xs:boolean" />
+      <xs:element minOccurs="0" name="AdditionalTariff3_NonTaxable" type="xs:boolean" />
+      <xs:element minOccurs="0" name="AdditionalTariff4_IncludeInOccupancyCount" type="xs:boolean" />
+      <xs:element minOccurs="0" name="AdditionalTariff4_NonTaxable" type="xs:boolean" />
+      <xs:element minOccurs="0" name="AdditionalTariff5_IncludeInOccupancyCount" type="xs:boolean" />
+      <xs:element minOccurs="0" name="AdditionalTariff5_NonTaxable" type="xs:boolean" />
+      <xs:element minOccurs="0" name="AdditionalTariff6_IncludeInOccupancyCount" type="xs:boolean" />
+      <xs:element minOccurs="0" name="AdditionalTariff6_NonTaxable" type="xs:boolean" />
+      <xs:element minOccurs="0" name="AdditionalTariff7_IncludeInOccupancyCount" type="xs:boolean" />
+      <xs:element minOccurs="0" name="AdditionalTariff7_NonTaxable" type="xs:boolean" />
+      <xs:element minOccurs="0" name="DwellingLabelsId" type="xs:int" />
+      <xs:element minOccurs="0" name="DwellingLabelsPropertyId" type="xs:int" />
+      <xs:element minOccurs="0" name="DwellinglblSpare1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DwellinglblSpare10" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DwellinglblSpare2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DwellinglblSpare3" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DwellinglblSpare4" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DwellinglblSpare5" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DwellinglblSpare6" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DwellinglblSpare7" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DwellinglblSpare8" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DwellinglblSpare9" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Language_Id" type="xs:int" />
+      <xs:element minOccurs="0" name="OnlinelblAccommodation" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OnlinelblDock" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OnlinelblSite" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PropertyTablePropertyId" type="xs:int" />
+      <xs:element minOccurs="0" name="ShowInRMSOnline_AdditionalTariff1" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ShowInRMSOnline_AdditionalTariff2" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ShowInRMSOnline_AdditionalTariff3" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ShowInRMSOnline_AdditionalTariff4" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ShowInRMSOnline_AdditionalTariff5" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ShowInRMSOnline_AdditionalTariff6" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ShowInRMSOnline_AdditionalTariff7" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Spare1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Spare10" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Spare11" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Spare12" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Spare13" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Spare14" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Spare15" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Spare16" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Spare2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Spare3" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Spare4" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Spare5" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Spare6" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Spare7" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Spare8" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Spare9" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SystemLabelId" type="xs:int" />
+      <xs:element minOccurs="0" name="SystemLabelsPropertyId" type="xs:int" />
+      <xs:element minOccurs="0" name="aSpare1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="aSpare10" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="aSpare2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="aSpare3" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="aSpare4" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="aSpare5" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="aSpare6" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="aSpare7" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="aSpare8" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="aSpare9" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lblABN" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lblAccomm" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lblActivity" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lblAddOn" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lblAddtionalTariff1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lblAddtionalTariff2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lblAddtionalTariff3" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lblAddtionalTariff4" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lblAddtionalTariff5" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lblAddtionalTariff6" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lblAddtionalTariff7" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lblAdults" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lblAgentSpare1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lblAgentSpare2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lblAgentSpare3" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lblAgentSpare4" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lblAgentSpare5" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lblArea" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lblArrive" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lblBlacklist" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lblBoat" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lblBookingSource" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lblBusinessSegment" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lblCash3" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lblCash4" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lblCash5" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lblCat_Spare1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lblCat_Spare2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lblCat_Spare3" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lblCat_Spare4" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lblCat_Spare5" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lblCat_Spare6" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lblCat_Spare7" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lblCat_Spare8" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lblCat_Spare9" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lblCategory" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lblCheque3" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lblCheque4" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lblCheque5" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lblChild" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lblCityMaster" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lblClient" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lblClientSpare1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lblClientSpare10" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lblClientSpare11" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lblClientSpare11MembershipSearchable" type="xs:boolean" />
+      <xs:element minOccurs="0" name="lblClientSpare12" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lblClientSpare12MembershipSearchable" type="xs:boolean" />
+      <xs:element minOccurs="0" name="lblClientSpare13" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lblClientSpare14" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lblClientSpare15" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lblClientSpare16" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lblClientSpare2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lblClientSpare3" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lblClientSpare4" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lblClientSpare5" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lblClientSpare6" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lblClientSpare7" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lblClientSpare8" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lblClientSpare9" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lblClientStatus" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lblClient_Spare13_Default" type="xs:boolean" />
+      <xs:element minOccurs="0" name="lblClient_Spare14_Default" type="xs:boolean" />
+      <xs:element minOccurs="0" name="lblCompSpare1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lblCompSpare2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lblCompSpare3" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lblCompSpare4" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lblCompSpare5" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lblCompany" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lblCompanyUnknown" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lblCompetitorMaster" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lblContact_RefNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lblCoordinatorOne" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lblCoordinatorTwo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lblCreditCard" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lblDepart" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lblDirectCredit" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lblDirectCredit2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lblDirectCredit3" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lblDirectCredit4" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lblDirectCredit5" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lblDwelling" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lblEDMFilter1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lblEDMFilter2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lblEDMFilter3" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lblEFTPOS" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lblEFTPOSMachine" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lblElectricity" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lblElectricityUnits" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lblEventName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lblExtras" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lblFurniture" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lblGST" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lblGas" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lblGasUnits" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lblGiven" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lblGroceries" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lblGroupname" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lblHobbies" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lblHold" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lblHousekeeperNote" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lblHousekeepingUnitOfTime" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lblIndustryMaster" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lblInfant" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lblMaintenance" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lblMealPlan" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lblOTARef1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lblOTARef2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lblOTARef3" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lblOccupant" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lblOtherCash" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lblOtherCheque" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lblPostalSort" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lblPostcode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lblPrivacyOptIn" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lblProp_Spare1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lblProp_Spare2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lblProp_Spare3" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lblProp_Spare4" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lblProp_Spare5" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lblResType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lblRes_Spare11_Default" type="xs:boolean" />
+      <xs:element minOccurs="0" name="lblRes_Spare12_Default" type="xs:boolean" />
+      <xs:element minOccurs="0" name="lblRes_Spare13_Default" type="xs:boolean" />
+      <xs:element minOccurs="0" name="lblReservation" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lblResnote" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lblState" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lblSundry" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lblSurname" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lblTariff" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lblTown" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lblTravelAgent" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lblVoucherNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lblWater" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lblWaterUnits" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lblWholesaler" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SystemLabelsScreenData" nillable="true" type="tns:SystemLabelsScreenData" />
+  <xs:complexType name="ArrayOfSundryBasic">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SundryBasic" nillable="true" type="tns:SundryBasic" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSundryBasic" nillable="true" type="tns:ArrayOfSundryBasic" />
+  <xs:complexType name="SundryBasic">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BarCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CreditNote" type="xs:boolean" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.Accounting" minOccurs="0" name="CurrencyView" type="q1:Currency.CurrencyView" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GLCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GLCodeId" type="xs:int" />
+      <xs:element minOccurs="0" name="HasTaxes" type="xs:boolean" />
+      <xs:element minOccurs="0" name="SecondCurrency" type="xs:decimal" />
+      <xs:element minOccurs="0" name="SundryId" type="xs:int" />
+      <xs:element minOccurs="0" name="UnitPrice" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SundryBasic" nillable="true" type="tns:SundryBasic" />
+  <xs:complexType name="ArrayOfGLCodeBasic">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="GLCodeBasic" nillable="true" type="tns:GLCodeBasic" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfGLCodeBasic" nillable="true" type="tns:ArrayOfGLCodeBasic" />
+  <xs:complexType name="GLCodeBasic">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GLCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GLCodeId" type="xs:int" />
+      <xs:element minOccurs="0" name="GrpId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GLCodeBasic" nillable="true" type="tns:GLCodeBasic" />
+  <xs:complexType name="ArrayOfCompanyBasic">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CompanyBasic" nillable="true" type="tns:CompanyBasic" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCompanyBasic" nillable="true" type="tns:ArrayOfCompanyBasic" />
+  <xs:complexType name="CompanyBasic">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Address" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BillingNote" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BookSrc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BookSrcId" type="xs:int" />
+      <xs:element minOccurs="0" name="BranchType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Company" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CompanyId" type="xs:int" />
+      <xs:element minOccurs="0" name="CreditHold" type="xs:boolean" />
+      <xs:element minOccurs="0" name="HideRateFromCorrespondence" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Notes" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Primary" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ResType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ResTypeId" type="xs:int" />
+      <xs:element minOccurs="0" name="Spare1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Spare2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Spare3" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Spare4" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Spare5" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TradingAs" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CompanyBasic" nillable="true" type="tns:CompanyBasic" />
+  <xs:complexType name="ArrayOfPropertyBasic">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PropertyBasic" nillable="true" type="tns:PropertyBasic" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPropertyBasic" nillable="true" type="tns:ArrayOfPropertyBasic" />
+  <xs:complexType name="PropertyBasic">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.Data.Manager" minOccurs="0" name="CountryRunningFrom" type="q2:SystemOptions.CountryRunningFrom" />
+      <xs:element minOccurs="0" name="GrpId" type="xs:int" />
+      <xs:element minOccurs="0" name="InActive" type="xs:boolean" />
+      <xs:element minOccurs="0" name="PropertyId" type="xs:int" />
+      <xs:element minOccurs="0" name="PropertyName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RMSClientNo" type="xs:int" />
+      <xs:element minOccurs="0" name="TimeZoneId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UseSecondaryCurrency" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PropertyBasic" nillable="true" type="tns:PropertyBasic" />
+  <xs:complexType name="ArrayOfCategoryBasic">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CategoryBasic" nillable="true" type="tns:CategoryBasic" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCategoryBasic" nillable="true" type="tns:ArrayOfCategoryBasic" />
+  <xs:complexType name="CategoryBasic">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AllowBookingByCategory" type="xs:boolean" />
+      <xs:element minOccurs="0" name="CatId" type="xs:int" />
+      <xs:element minOccurs="0" name="Category" nillable="true" type="xs:string" />
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.Data.Manager" minOccurs="0" name="CategoryClass" type="q3:Category.CategoryClass" />
+      <xs:element minOccurs="0" name="InActive" type="xs:boolean" />
+      <xs:element minOccurs="0" name="NoOfAreas" type="xs:int" />
+      <xs:element minOccurs="0" name="PropertyId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CategoryBasic" nillable="true" type="tns:CategoryBasic" />
+  <xs:complexType name="ArrayOfAreaBasic">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AreaBasic" nillable="true" type="tns:AreaBasic" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAreaBasic" nillable="true" type="tns:ArrayOfAreaBasic" />
+  <xs:complexType name="AreaBasic">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Area" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AreaId" type="xs:int" />
+      <xs:element minOccurs="0" name="CatId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AreaBasic" nillable="true" type="tns:AreaBasic" />
+  <xs:complexType name="ArrayOfAreaSetup">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AreaSetup" nillable="true" type="tns:AreaSetup" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAreaSetup" nillable="true" type="tns:ArrayOfAreaSetup" />
+  <xs:complexType name="AreaSetup">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Area" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AreaId" type="xs:int" />
+      <xs:element minOccurs="0" name="AreaStats" type="xs:boolean" />
+      <xs:element minOccurs="0" name="CleanStatus" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MaxOccupants" type="xs:int" />
+      <xs:element minOccurs="0" name="PrintStatement" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Spare1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Spare2" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AreaSetup" nillable="true" type="tns:AreaSetup" />
+  <xs:complexType name="ArrayOfCreditCardBasic">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CreditCardBasic" nillable="true" type="tns:CreditCardBasic" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCreditCardBasic" nillable="true" type="tns:ArrayOfCreditCardBasic" />
+  <xs:complexType name="CreditCardBasic">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CardId" type="xs:int" />
+      <xs:element minOccurs="0" name="CreditCard" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CreditCardBasic" nillable="true" type="tns:CreditCardBasic" />
+  <xs:complexType name="ArrayOfStatusBasic">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="StatusBasic" nillable="true" type="tns:StatusBasic" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfStatusBasic" nillable="true" type="tns:ArrayOfStatusBasic" />
+  <xs:complexType name="StatusBasic">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StatusId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="StatusBasic" nillable="true" type="tns:StatusBasic" />
+  <xs:complexType name="ArrayOfClassificationBasic">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ClassificationBasic" nillable="true" type="tns:ClassificationBasic" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfClassificationBasic" nillable="true" type="tns:ArrayOfClassificationBasic" />
+  <xs:complexType name="ClassificationBasic">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Classification" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ClassificationId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ClassificationBasic" nillable="true" type="tns:ClassificationBasic" />
+  <xs:complexType name="ArrayOfBookingSourceBasic">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="BookingSourceBasic" nillable="true" type="tns:BookingSourceBasic" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfBookingSourceBasic" nillable="true" type="tns:ArrayOfBookingSourceBasic" />
+  <xs:complexType name="BookingSourceBasic">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BookingSource" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BookingSourceId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BookingSourceBasic" nillable="true" type="tns:BookingSourceBasic" />
+  <xs:complexType name="ArrayOfResTypeBasic">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ResTypeBasic" nillable="true" type="tns:ResTypeBasic" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfResTypeBasic" nillable="true" type="tns:ArrayOfResTypeBasic" />
+  <xs:complexType name="ResTypeBasic">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="InActive" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ResType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ResTypeId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ResTypeBasic" nillable="true" type="tns:ResTypeBasic" />
+  <xs:complexType name="ArrayOfTitleBasic">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TitleBasic" nillable="true" type="tns:TitleBasic" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTitleBasic" nillable="true" type="tns:ArrayOfTitleBasic" />
+  <xs:complexType name="TitleBasic">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TitleId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TitleBasic" nillable="true" type="tns:TitleBasic" />
+</xs:schema>

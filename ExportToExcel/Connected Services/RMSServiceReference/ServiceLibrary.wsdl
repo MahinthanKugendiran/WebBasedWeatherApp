@@ -1,0 +1,1652 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ServiceLibrary" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="BasicHttpBinding_PublicService_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken RequireClientCertificate="false" />
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="https://api.rms.com.au/RMSPublicService/RMSPublicService.ServiceLibrary.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="https://api.rms.com.au/RMSPublicService/RMSPublicService.ServiceLibrary.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="https://api.rms.com.au/RMSPublicService/RMSPublicService.ServiceLibrary.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.RMSPublic.SerialisedClasses" />
+      <xsd:import schemaLocation="https://api.rms.com.au/RMSPublicService/RMSPublicService.ServiceLibrary.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.Data.SerialisedClasses" />
+      <xsd:import schemaLocation="https://api.rms.com.au/RMSPublicService/RMSPublicService.ServiceLibrary.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.Accounting" />
+      <xsd:import schemaLocation="https://api.rms.com.au/RMSPublicService/RMSPublicService.ServiceLibrary.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.RMSPublic" />
+      <xsd:import schemaLocation="https://api.rms.com.au/RMSPublicService/RMSPublicService.ServiceLibrary.svc?xsd=xsd6" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="https://api.rms.com.au/RMSPublicService/RMSPublicService.ServiceLibrary.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.Data.Manager" />
+      <xsd:import schemaLocation="https://api.rms.com.au/RMSPublicService/RMSPublicService.ServiceLibrary.svc?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.Reservation" />
+      <xsd:import schemaLocation="https://api.rms.com.au/RMSPublicService/RMSPublicService.ServiceLibrary.svc?xsd=xsd9" namespace="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.Utilities.RedConnect.SerialisedClasses.FinancialExtract" />
+      <xsd:import schemaLocation="https://api.rms.com.au/RMSPublicService/RMSPublicService.ServiceLibrary.svc?xsd=xsd10" namespace="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.Utilities.RedConnect" />
+      <xsd:import schemaLocation="https://api.rms.com.au/RMSPublicService/RMSPublicService.ServiceLibrary.svc?xsd=xsd11" namespace="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.RMSPublic.Kiosk.SerialisedClasses" />
+      <xsd:import schemaLocation="https://api.rms.com.au/RMSPublicService/RMSPublicService.ServiceLibrary.svc?xsd=xsd12" namespace="http://schemas.datacontract.org/2004/07/RMS.ExceptionHandler.SerialisedClasses" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="PublicService_TestCall_InputMessage">
+    <wsdl:part name="parameters" element="tns:TestCall" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_TestCall_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TestCallResponse" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_GetToken_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetToken" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_GetToken_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTokenResponse" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_GetConnectionInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetConnectionInfo" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_GetConnectionInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetConnectionInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_GetPropertyName_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPropertyName" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_GetPropertyName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPropertyNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_GetSystemLabels_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSystemLabels" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_GetSystemLabels_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSystemLabelsResponse" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_GetListOfSundryCharges_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetListOfSundryCharges" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_GetListOfSundryCharges_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetListOfSundryChargesResponse" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_GetListOfSundryChargesDetail_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetListOfSundryChargesDetail" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_GetListOfSundryChargesDetail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetListOfSundryChargesDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_GetListOfGLCodes_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetListOfGLCodes" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_GetListOfGLCodes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetListOfGLCodesResponse" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_GetListOfGLCodesDetail_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetListOfGLCodesDetail" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_GetListOfGLCodesDetail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetListOfGLCodesDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_GetListOfGLGroupHeaders_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetListOfGLGroupHeaders" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_GetListOfGLGroupHeaders_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetListOfGLGroupHeadersResponse" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_GetListOfCompanies_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetListOfCompanies" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_GetListOfCompanies_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetListOfCompaniesResponse" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_GetListOfCompanies2_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetListOfCompanies2" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_GetListOfCompanies2_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetListOfCompanies2Response" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_GetListOfProperties_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetListOfProperties" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_GetListOfProperties_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetListOfPropertiesResponse" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_GetListOfAgents_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetListOfAgents" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_GetListOfAgents_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetListOfAgentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_GetListOfPropertiesDetail_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetListOfPropertiesDetail" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_GetListOfPropertiesDetail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetListOfPropertiesDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_GetListOfCategories_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetListOfCategories" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_GetListOfCategories_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetListOfCategoriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_GetListOfCategoriesDetail_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetListOfCategoriesDetail" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_GetListOfCategoriesDetail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetListOfCategoriesDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_GetListOfAreas_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetListOfAreas" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_GetListOfAreas_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetListOfAreasResponse" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_GetListOfAreasDetail_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetListOfAreasDetail" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_GetListOfAreasDetail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetListOfAreasDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_GetListOfAreasSetup_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetListOfAreasSetup" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_GetListOfAreasSetup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetListOfAreasSetupResponse" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_GetListOfCreditCards_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetListOfCreditCards" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_GetListOfCreditCards_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetListOfCreditCardsResponse" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_GetListOfReservations_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetListOfReservations" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_GetListOfReservations_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetListOfReservationsResponse" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_GetListOfClients_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetListOfClients" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_GetListOfClients_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetListOfClientsResponse" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_GetListOfClientStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetListOfClientStatus" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_GetListOfClientStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetListOfClientStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_GetListOfClassifications_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetListOfClassifications" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_GetListOfClassifications_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetListOfClassificationsResponse" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_GetListOfBookingSources_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetListOfBookingSources" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_GetListOfBookingSources_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetListOfBookingSourcesResponse" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_GetListOfResTypes_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetListOfResTypes" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_GetListOfResTypes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetListOfResTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_GetListOfSubResTypes_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetListOfSubResTypes" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_GetListOfSubResTypes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetListOfSubResTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_GetMandatoryFields_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMandatoryFields" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_GetMandatoryFields_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMandatoryFieldsResponse" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_GetListOfTitles_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetListOfTitles" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_GetListOfTitles_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetListOfTitlesResponse" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_GetListOfRegoNumbers_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetListOfRegoNumbers" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_GetListOfRegoNumbers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetListOfRegoNumbersResponse" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_GetListOfPostcodeData_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetListOfPostcodeData" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_GetListOfPostcodeData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetListOfPostcodeDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_GetListOfInvoices_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetListOfInvoices" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_GetListOfInvoices_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetListOfInvoicesResponse" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_EmailInvoice_InputMessage">
+    <wsdl:part name="parameters" element="tns:EmailInvoice" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_EmailInvoice_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EmailInvoiceResponse" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_GetListOfTransactions_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetListOfTransactions" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_GetListOfTransactions_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetListOfTransactionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_SetAreaCleanStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetAreaCleanStatus" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_SetAreaCleanStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetAreaCleanStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_GetAvailability_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAvailability" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_GetAvailability_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAvailabilityResponse" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_CreateResNote_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateResNote" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_CreateResNote_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateResNoteResponse" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_CreateClient_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateClient" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_CreateClient_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateClientResponse" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_GetClient_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetClient" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_GetClient_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetClientResponse" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_UpdateClient_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateClient" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_UpdateClient_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateClientResponse" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_SaveCompany_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveCompany" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_SaveCompany_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveCompanyResponse" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_SetBillPending_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetBillPending" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_SetBillPending_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetBillPendingResponse" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_ProcessTransactions_InputMessage">
+    <wsdl:part name="parameters" element="tns:ProcessTransactions" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_ProcessTransactions_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ProcessTransactionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_AllowedToPostCharge_InputMessage">
+    <wsdl:part name="parameters" element="tns:AllowedToPostCharge" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_AllowedToPostCharge_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AllowedToPostChargeResponse" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_AssignAccountNoToClient_InputMessage">
+    <wsdl:part name="parameters" element="tns:AssignAccountNoToClient" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_AssignAccountNoToClient_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AssignAccountNoToClientResponse" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_SetPOSEndOfDayDate_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetPOSEndOfDayDate" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_SetPOSEndOfDayDate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetPOSEndOfDayDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_SetBanquetEndOfDayDate_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetBanquetEndOfDayDate" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_SetBanquetEndOfDayDate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetBanquetEndOfDayDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_GetBanquetEndOfDayDate_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBanquetEndOfDayDate" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_GetBanquetEndOfDayDate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBanquetEndOfDayDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_GetPOSEndOfDayDate_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPOSEndOfDayDate" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_GetPOSEndOfDayDate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPOSEndOfDayDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_GetListOfRequirements_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetListOfRequirements" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_GetListOfRequirements_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetListOfRequirementsResponse" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_SaveResRequirement_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveResRequirement" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_SaveResRequirement_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveResRequirementResponse" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_GetListOfUsers_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetListOfUsers" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_GetListOfUsers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetListOfUsersResponse" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_GetListOfSecurityProfiles_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetListOfSecurityProfiles" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_GetListOfSecurityProfiles_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetListOfSecurityProfilesResponse" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_GetListOfRates_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetListOfRates" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_GetListOfRates_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetListOfRatesResponse" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_GetListOfRates2_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetListOfRates2" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_GetListOfRates2_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetListOfRates2Response" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_GetListOfAttributes_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetListOfAttributes" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_GetListOfAttributes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetListOfAttributesResponse" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_CreateUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateUser" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_CreateUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_UpdateUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateUser" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_UpdateUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_SaveClientDetails_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveClientDetails" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_SaveClientDetails_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveClientDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_SaveResDetails_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveResDetails" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_SaveResDetails_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveResDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_GetListOfDiscounts_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetListOfDiscounts" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_GetListOfDiscounts_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetListOfDiscountsResponse" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_GetListOfUserMessages_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetListOfUserMessages" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_GetListOfUserMessages_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetListOfUserMessagesResponse" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_SaveUserMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveUserMessage" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_SaveUserMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveUserMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_DeleteUserMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteUserMessage" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_DeleteUserMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteUserMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_GetListOfAuditTrail_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetListOfAuditTrail" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_GetListOfAuditTrail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetListOfAuditTrailResponse" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_RetrieveClientLite_InputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveClientLite" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_RetrieveClientLite_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveClientLiteResponse" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_RetrieveResLite_InputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveResLite" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_RetrieveResLite_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveResLiteResponse" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_RetrieveTravelAgentLite_InputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveTravelAgentLite" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_RetrieveTravelAgentLite_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveTravelAgentLiteResponse" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_RetrieveCompanyLite_InputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveCompanyLite" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_RetrieveCompanyLite_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveCompanyLiteResponse" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_RetrieveBookingSourceLite_InputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveBookingSourceLite" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_RetrieveBookingSourceLite_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveBookingSourceLiteResponse" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_RetrieveHeldLite_InputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveHeldLite" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_RetrieveHeldLite_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveHeldLiteResponse" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_RetrieveHoldLite_InputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveHoldLite" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_RetrieveHoldLite_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveHoldLiteResponse" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_SaveTravelAgentDetails_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveTravelAgentDetails" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_SaveTravelAgentDetails_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveTravelAgentDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_SaveCompanyDetails_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveCompanyDetails" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_SaveCompanyDetails_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveCompanyDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_SaveBookingSourceDetails_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveBookingSourceDetails" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_SaveBookingSourceDetails_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveBookingSourceDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_SaveHeldDetails_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveHeldDetails" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_SaveHeldDetails_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveHeldDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_SaveHoldDetails_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveHoldDetails" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_SaveHoldDetails_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveHoldDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_SaveDocuments_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveDocuments" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_SaveDocuments_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveDocumentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_GetListOfMarketSegments_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetListOfMarketSegments" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_GetListOfMarketSegments_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetListOfMarketSegmentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_GetListOfContacts_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetListOfContacts" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_GetListOfContacts_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetListOfContactsResponse" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_GetListOfRateDetails_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetListOfRateDetails" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_GetListOfRateDetails_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetListOfRateDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_ChangeResStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeResStatus" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_ChangeResStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeResStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_AutoAllocateAreas_InputMessage">
+    <wsdl:part name="parameters" element="tns:AutoAllocateAreas" />
+  </wsdl:message>
+  <wsdl:message name="PublicService_AutoAllocateAreas_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AutoAllocateAreasResponse" />
+  </wsdl:message>
+  <wsdl:portType name="PublicService">
+    <wsdl:operation name="TestCall">
+      <wsdl:input wsaw:Action="http://tempuri.org/PublicService/TestCall" message="tns:PublicService_TestCall_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PublicService/TestCallResponse" message="tns:PublicService_TestCall_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetToken">
+      <wsdl:input wsaw:Action="http://tempuri.org/PublicService/GetToken" message="tns:PublicService_GetToken_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PublicService/GetTokenResponse" message="tns:PublicService_GetToken_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetConnectionInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/PublicService/GetConnectionInfo" message="tns:PublicService_GetConnectionInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PublicService/GetConnectionInfoResponse" message="tns:PublicService_GetConnectionInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPropertyName">
+      <wsdl:input wsaw:Action="http://tempuri.org/PublicService/GetPropertyName" message="tns:PublicService_GetPropertyName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PublicService/GetPropertyNameResponse" message="tns:PublicService_GetPropertyName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSystemLabels">
+      <wsdl:input wsaw:Action="http://tempuri.org/PublicService/GetSystemLabels" message="tns:PublicService_GetSystemLabels_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PublicService/GetSystemLabelsResponse" message="tns:PublicService_GetSystemLabels_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListOfSundryCharges">
+      <wsdl:input wsaw:Action="http://tempuri.org/PublicService/GetListOfSundryCharges" message="tns:PublicService_GetListOfSundryCharges_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PublicService/GetListOfSundryChargesResponse" message="tns:PublicService_GetListOfSundryCharges_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListOfSundryChargesDetail">
+      <wsdl:input wsaw:Action="http://tempuri.org/PublicService/GetListOfSundryChargesDetail" message="tns:PublicService_GetListOfSundryChargesDetail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PublicService/GetListOfSundryChargesDetailResponse" message="tns:PublicService_GetListOfSundryChargesDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListOfGLCodes">
+      <wsdl:input wsaw:Action="http://tempuri.org/PublicService/GetListOfGLCodes" message="tns:PublicService_GetListOfGLCodes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PublicService/GetListOfGLCodesResponse" message="tns:PublicService_GetListOfGLCodes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListOfGLCodesDetail">
+      <wsdl:input wsaw:Action="http://tempuri.org/PublicService/GetListOfGLCodesDetail" message="tns:PublicService_GetListOfGLCodesDetail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PublicService/GetListOfGLCodesDetailResponse" message="tns:PublicService_GetListOfGLCodesDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListOfGLGroupHeaders">
+      <wsdl:input wsaw:Action="http://tempuri.org/PublicService/GetListOfGLGroupHeaders" message="tns:PublicService_GetListOfGLGroupHeaders_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PublicService/GetListOfGLGroupHeadersResponse" message="tns:PublicService_GetListOfGLGroupHeaders_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListOfCompanies">
+      <wsdl:input wsaw:Action="http://tempuri.org/PublicService/GetListOfCompanies" message="tns:PublicService_GetListOfCompanies_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PublicService/GetListOfCompaniesResponse" message="tns:PublicService_GetListOfCompanies_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListOfCompanies2">
+      <wsdl:input wsaw:Action="http://tempuri.org/PublicService/GetListOfCompanies2" message="tns:PublicService_GetListOfCompanies2_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PublicService/GetListOfCompanies2Response" message="tns:PublicService_GetListOfCompanies2_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListOfProperties">
+      <wsdl:input wsaw:Action="http://tempuri.org/PublicService/GetListOfProperties" message="tns:PublicService_GetListOfProperties_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PublicService/GetListOfPropertiesResponse" message="tns:PublicService_GetListOfProperties_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListOfAgents">
+      <wsdl:input wsaw:Action="http://tempuri.org/PublicService/GetListOfAgents" message="tns:PublicService_GetListOfAgents_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PublicService/GetListOfAgentsResponse" message="tns:PublicService_GetListOfAgents_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListOfPropertiesDetail">
+      <wsdl:input wsaw:Action="http://tempuri.org/PublicService/GetListOfPropertiesDetail" message="tns:PublicService_GetListOfPropertiesDetail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PublicService/GetListOfPropertiesDetailResponse" message="tns:PublicService_GetListOfPropertiesDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListOfCategories">
+      <wsdl:input wsaw:Action="http://tempuri.org/PublicService/GetListOfCategories" message="tns:PublicService_GetListOfCategories_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PublicService/GetListOfCategoriesResponse" message="tns:PublicService_GetListOfCategories_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListOfCategoriesDetail">
+      <wsdl:input wsaw:Action="http://tempuri.org/PublicService/GetListOfCategoriesDetail" message="tns:PublicService_GetListOfCategoriesDetail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PublicService/GetListOfCategoriesDetailResponse" message="tns:PublicService_GetListOfCategoriesDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListOfAreas">
+      <wsdl:input wsaw:Action="http://tempuri.org/PublicService/GetListOfAreas" message="tns:PublicService_GetListOfAreas_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PublicService/GetListOfAreasResponse" message="tns:PublicService_GetListOfAreas_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListOfAreasDetail">
+      <wsdl:input wsaw:Action="http://tempuri.org/PublicService/GetListOfAreasDetail" message="tns:PublicService_GetListOfAreasDetail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PublicService/GetListOfAreasDetailResponse" message="tns:PublicService_GetListOfAreasDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListOfAreasSetup">
+      <wsdl:input wsaw:Action="http://tempuri.org/PublicService/GetListOfAreasSetup" message="tns:PublicService_GetListOfAreasSetup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PublicService/GetListOfAreasSetupResponse" message="tns:PublicService_GetListOfAreasSetup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListOfCreditCards">
+      <wsdl:input wsaw:Action="http://tempuri.org/PublicService/GetListOfCreditCards" message="tns:PublicService_GetListOfCreditCards_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PublicService/GetListOfCreditCardsResponse" message="tns:PublicService_GetListOfCreditCards_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListOfReservations">
+      <wsdl:input wsaw:Action="http://tempuri.org/PublicService/GetListOfReservations" message="tns:PublicService_GetListOfReservations_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PublicService/GetListOfReservationsResponse" message="tns:PublicService_GetListOfReservations_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListOfClients">
+      <wsdl:input wsaw:Action="http://tempuri.org/PublicService/GetListOfClients" message="tns:PublicService_GetListOfClients_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PublicService/GetListOfClientsResponse" message="tns:PublicService_GetListOfClients_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListOfClientStatus">
+      <wsdl:input wsaw:Action="http://tempuri.org/PublicService/GetListOfClientStatus" message="tns:PublicService_GetListOfClientStatus_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PublicService/GetListOfClientStatusResponse" message="tns:PublicService_GetListOfClientStatus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListOfClassifications">
+      <wsdl:input wsaw:Action="http://tempuri.org/PublicService/GetListOfClassifications" message="tns:PublicService_GetListOfClassifications_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PublicService/GetListOfClassificationsResponse" message="tns:PublicService_GetListOfClassifications_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListOfBookingSources">
+      <wsdl:input wsaw:Action="http://tempuri.org/PublicService/GetListOfBookingSources" message="tns:PublicService_GetListOfBookingSources_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PublicService/GetListOfBookingSourcesResponse" message="tns:PublicService_GetListOfBookingSources_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListOfResTypes">
+      <wsdl:input wsaw:Action="http://tempuri.org/PublicService/GetListOfResTypes" message="tns:PublicService_GetListOfResTypes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PublicService/GetListOfResTypesResponse" message="tns:PublicService_GetListOfResTypes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListOfSubResTypes">
+      <wsdl:input wsaw:Action="http://tempuri.org/PublicService/GetListOfSubResTypes" message="tns:PublicService_GetListOfSubResTypes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PublicService/GetListOfSubResTypesResponse" message="tns:PublicService_GetListOfSubResTypes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMandatoryFields">
+      <wsdl:input wsaw:Action="http://tempuri.org/PublicService/GetMandatoryFields" message="tns:PublicService_GetMandatoryFields_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PublicService/GetMandatoryFieldsResponse" message="tns:PublicService_GetMandatoryFields_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListOfTitles">
+      <wsdl:input wsaw:Action="http://tempuri.org/PublicService/GetListOfTitles" message="tns:PublicService_GetListOfTitles_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PublicService/GetListOfTitlesResponse" message="tns:PublicService_GetListOfTitles_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListOfRegoNumbers">
+      <wsdl:input wsaw:Action="http://tempuri.org/PublicService/GetListOfRegoNumbers" message="tns:PublicService_GetListOfRegoNumbers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PublicService/GetListOfRegoNumbersResponse" message="tns:PublicService_GetListOfRegoNumbers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListOfPostcodeData">
+      <wsdl:input wsaw:Action="http://tempuri.org/PublicService/GetListOfPostcodeData" message="tns:PublicService_GetListOfPostcodeData_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PublicService/GetListOfPostcodeDataResponse" message="tns:PublicService_GetListOfPostcodeData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListOfInvoices">
+      <wsdl:input wsaw:Action="http://tempuri.org/PublicService/GetListOfInvoices" message="tns:PublicService_GetListOfInvoices_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PublicService/GetListOfInvoicesResponse" message="tns:PublicService_GetListOfInvoices_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EmailInvoice">
+      <wsdl:input wsaw:Action="http://tempuri.org/PublicService/EmailInvoice" message="tns:PublicService_EmailInvoice_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PublicService/EmailInvoiceResponse" message="tns:PublicService_EmailInvoice_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListOfTransactions">
+      <wsdl:input wsaw:Action="http://tempuri.org/PublicService/GetListOfTransactions" message="tns:PublicService_GetListOfTransactions_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PublicService/GetListOfTransactionsResponse" message="tns:PublicService_GetListOfTransactions_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetAreaCleanStatus">
+      <wsdl:input wsaw:Action="http://tempuri.org/PublicService/SetAreaCleanStatus" message="tns:PublicService_SetAreaCleanStatus_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PublicService/SetAreaCleanStatusResponse" message="tns:PublicService_SetAreaCleanStatus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAvailability">
+      <wsdl:input wsaw:Action="http://tempuri.org/PublicService/GetAvailability" message="tns:PublicService_GetAvailability_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PublicService/GetAvailabilityResponse" message="tns:PublicService_GetAvailability_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateResNote">
+      <wsdl:input wsaw:Action="http://tempuri.org/PublicService/CreateResNote" message="tns:PublicService_CreateResNote_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PublicService/CreateResNoteResponse" message="tns:PublicService_CreateResNote_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateClient">
+      <wsdl:input wsaw:Action="http://tempuri.org/PublicService/CreateClient" message="tns:PublicService_CreateClient_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PublicService/CreateClientResponse" message="tns:PublicService_CreateClient_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetClient">
+      <wsdl:input wsaw:Action="http://tempuri.org/PublicService/GetClient" message="tns:PublicService_GetClient_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PublicService/GetClientResponse" message="tns:PublicService_GetClient_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateClient">
+      <wsdl:input wsaw:Action="http://tempuri.org/PublicService/UpdateClient" message="tns:PublicService_UpdateClient_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PublicService/UpdateClientResponse" message="tns:PublicService_UpdateClient_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveCompany">
+      <wsdl:input wsaw:Action="http://tempuri.org/PublicService/SaveCompany" message="tns:PublicService_SaveCompany_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PublicService/SaveCompanyResponse" message="tns:PublicService_SaveCompany_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetBillPending">
+      <wsdl:input wsaw:Action="http://tempuri.org/PublicService/SetBillPending" message="tns:PublicService_SetBillPending_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PublicService/SetBillPendingResponse" message="tns:PublicService_SetBillPending_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ProcessTransactions">
+      <wsdl:input wsaw:Action="http://tempuri.org/PublicService/ProcessTransactions" message="tns:PublicService_ProcessTransactions_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PublicService/ProcessTransactionsResponse" message="tns:PublicService_ProcessTransactions_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AllowedToPostCharge">
+      <wsdl:input wsaw:Action="http://tempuri.org/PublicService/AllowedToPostCharge" message="tns:PublicService_AllowedToPostCharge_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PublicService/AllowedToPostChargeResponse" message="tns:PublicService_AllowedToPostCharge_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AssignAccountNoToClient">
+      <wsdl:input wsaw:Action="http://tempuri.org/PublicService/AssignAccountNoToClient" message="tns:PublicService_AssignAccountNoToClient_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PublicService/AssignAccountNoToClientResponse" message="tns:PublicService_AssignAccountNoToClient_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetPOSEndOfDayDate">
+      <wsdl:input wsaw:Action="http://tempuri.org/PublicService/SetPOSEndOfDayDate" message="tns:PublicService_SetPOSEndOfDayDate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PublicService/SetPOSEndOfDayDateResponse" message="tns:PublicService_SetPOSEndOfDayDate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetBanquetEndOfDayDate">
+      <wsdl:input wsaw:Action="http://tempuri.org/PublicService/SetBanquetEndOfDayDate" message="tns:PublicService_SetBanquetEndOfDayDate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PublicService/SetBanquetEndOfDayDateResponse" message="tns:PublicService_SetBanquetEndOfDayDate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBanquetEndOfDayDate">
+      <wsdl:input wsaw:Action="http://tempuri.org/PublicService/GetBanquetEndOfDayDate" message="tns:PublicService_GetBanquetEndOfDayDate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PublicService/GetBanquetEndOfDayDateResponse" message="tns:PublicService_GetBanquetEndOfDayDate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPOSEndOfDayDate">
+      <wsdl:input wsaw:Action="http://tempuri.org/PublicService/GetPOSEndOfDayDate" message="tns:PublicService_GetPOSEndOfDayDate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PublicService/GetPOSEndOfDayDateResponse" message="tns:PublicService_GetPOSEndOfDayDate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListOfRequirements">
+      <wsdl:input wsaw:Action="http://tempuri.org/PublicService/GetListOfRequirements" message="tns:PublicService_GetListOfRequirements_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PublicService/GetListOfRequirementsResponse" message="tns:PublicService_GetListOfRequirements_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveResRequirement">
+      <wsdl:input wsaw:Action="http://tempuri.org/PublicService/SaveResRequirement" message="tns:PublicService_SaveResRequirement_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PublicService/SaveResRequirementResponse" message="tns:PublicService_SaveResRequirement_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListOfUsers">
+      <wsdl:input wsaw:Action="http://tempuri.org/PublicService/GetListOfUsers" message="tns:PublicService_GetListOfUsers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PublicService/GetListOfUsersResponse" message="tns:PublicService_GetListOfUsers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListOfSecurityProfiles">
+      <wsdl:input wsaw:Action="http://tempuri.org/PublicService/GetListOfSecurityProfiles" message="tns:PublicService_GetListOfSecurityProfiles_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PublicService/GetListOfSecurityProfilesResponse" message="tns:PublicService_GetListOfSecurityProfiles_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListOfRates">
+      <wsdl:input wsaw:Action="http://tempuri.org/PublicService/GetListOfRates" message="tns:PublicService_GetListOfRates_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PublicService/GetListOfRatesResponse" message="tns:PublicService_GetListOfRates_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListOfRates2">
+      <wsdl:input wsaw:Action="http://tempuri.org/PublicService/GetListOfRates2" message="tns:PublicService_GetListOfRates2_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PublicService/GetListOfRates2Response" message="tns:PublicService_GetListOfRates2_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListOfAttributes">
+      <wsdl:input wsaw:Action="http://tempuri.org/PublicService/GetListOfAttributes" message="tns:PublicService_GetListOfAttributes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PublicService/GetListOfAttributesResponse" message="tns:PublicService_GetListOfAttributes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/PublicService/CreateUser" message="tns:PublicService_CreateUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PublicService/CreateUserResponse" message="tns:PublicService_CreateUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/PublicService/UpdateUser" message="tns:PublicService_UpdateUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PublicService/UpdateUserResponse" message="tns:PublicService_UpdateUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveClientDetails">
+      <wsdl:input wsaw:Action="http://tempuri.org/PublicService/SaveClientDetails" message="tns:PublicService_SaveClientDetails_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PublicService/SaveClientDetailsResponse" message="tns:PublicService_SaveClientDetails_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveResDetails">
+      <wsdl:input wsaw:Action="http://tempuri.org/PublicService/SaveResDetails" message="tns:PublicService_SaveResDetails_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PublicService/SaveResDetailsResponse" message="tns:PublicService_SaveResDetails_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListOfDiscounts">
+      <wsdl:input wsaw:Action="http://tempuri.org/PublicService/GetListOfDiscounts" message="tns:PublicService_GetListOfDiscounts_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PublicService/GetListOfDiscountsResponse" message="tns:PublicService_GetListOfDiscounts_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListOfUserMessages">
+      <wsdl:input wsaw:Action="http://tempuri.org/PublicService/GetListOfUserMessages" message="tns:PublicService_GetListOfUserMessages_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PublicService/GetListOfUserMessagesResponse" message="tns:PublicService_GetListOfUserMessages_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveUserMessage">
+      <wsdl:input wsaw:Action="http://tempuri.org/PublicService/SaveUserMessage" message="tns:PublicService_SaveUserMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PublicService/SaveUserMessageResponse" message="tns:PublicService_SaveUserMessage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUserMessage">
+      <wsdl:input wsaw:Action="http://tempuri.org/PublicService/DeleteUserMessage" message="tns:PublicService_DeleteUserMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PublicService/DeleteUserMessageResponse" message="tns:PublicService_DeleteUserMessage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListOfAuditTrail">
+      <wsdl:input wsaw:Action="http://tempuri.org/PublicService/GetListOfAuditTrail" message="tns:PublicService_GetListOfAuditTrail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PublicService/GetListOfAuditTrailResponse" message="tns:PublicService_GetListOfAuditTrail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveClientLite">
+      <wsdl:input wsaw:Action="http://tempuri.org/PublicService/RetrieveClientLite" message="tns:PublicService_RetrieveClientLite_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PublicService/RetrieveClientLiteResponse" message="tns:PublicService_RetrieveClientLite_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveResLite">
+      <wsdl:input wsaw:Action="http://tempuri.org/PublicService/RetrieveResLite" message="tns:PublicService_RetrieveResLite_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PublicService/RetrieveResLiteResponse" message="tns:PublicService_RetrieveResLite_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveTravelAgentLite">
+      <wsdl:input wsaw:Action="http://tempuri.org/PublicService/RetrieveTravelAgentLite" message="tns:PublicService_RetrieveTravelAgentLite_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PublicService/RetrieveTravelAgentLiteResponse" message="tns:PublicService_RetrieveTravelAgentLite_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveCompanyLite">
+      <wsdl:input wsaw:Action="http://tempuri.org/PublicService/RetrieveCompanyLite" message="tns:PublicService_RetrieveCompanyLite_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PublicService/RetrieveCompanyLiteResponse" message="tns:PublicService_RetrieveCompanyLite_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveBookingSourceLite">
+      <wsdl:input wsaw:Action="http://tempuri.org/PublicService/RetrieveBookingSourceLite" message="tns:PublicService_RetrieveBookingSourceLite_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PublicService/RetrieveBookingSourceLiteResponse" message="tns:PublicService_RetrieveBookingSourceLite_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveHeldLite">
+      <wsdl:input wsaw:Action="http://tempuri.org/PublicService/RetrieveHeldLite" message="tns:PublicService_RetrieveHeldLite_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PublicService/RetrieveHeldLiteResponse" message="tns:PublicService_RetrieveHeldLite_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveHoldLite">
+      <wsdl:input wsaw:Action="http://tempuri.org/PublicService/RetrieveHoldLite" message="tns:PublicService_RetrieveHoldLite_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PublicService/RetrieveHoldLiteResponse" message="tns:PublicService_RetrieveHoldLite_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveTravelAgentDetails">
+      <wsdl:input wsaw:Action="http://tempuri.org/PublicService/SaveTravelAgentDetails" message="tns:PublicService_SaveTravelAgentDetails_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PublicService/SaveTravelAgentDetailsResponse" message="tns:PublicService_SaveTravelAgentDetails_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveCompanyDetails">
+      <wsdl:input wsaw:Action="http://tempuri.org/PublicService/SaveCompanyDetails" message="tns:PublicService_SaveCompanyDetails_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PublicService/SaveCompanyDetailsResponse" message="tns:PublicService_SaveCompanyDetails_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveBookingSourceDetails">
+      <wsdl:input wsaw:Action="http://tempuri.org/PublicService/SaveBookingSourceDetails" message="tns:PublicService_SaveBookingSourceDetails_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PublicService/SaveBookingSourceDetailsResponse" message="tns:PublicService_SaveBookingSourceDetails_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveHeldDetails">
+      <wsdl:input wsaw:Action="http://tempuri.org/PublicService/SaveHeldDetails" message="tns:PublicService_SaveHeldDetails_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PublicService/SaveHeldDetailsResponse" message="tns:PublicService_SaveHeldDetails_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveHoldDetails">
+      <wsdl:input wsaw:Action="http://tempuri.org/PublicService/SaveHoldDetails" message="tns:PublicService_SaveHoldDetails_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PublicService/SaveHoldDetailsResponse" message="tns:PublicService_SaveHoldDetails_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveDocuments">
+      <wsdl:input wsaw:Action="http://tempuri.org/PublicService/SaveDocuments" message="tns:PublicService_SaveDocuments_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PublicService/SaveDocumentsResponse" message="tns:PublicService_SaveDocuments_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListOfMarketSegments">
+      <wsdl:input wsaw:Action="http://tempuri.org/PublicService/GetListOfMarketSegments" message="tns:PublicService_GetListOfMarketSegments_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PublicService/GetListOfMarketSegmentsResponse" message="tns:PublicService_GetListOfMarketSegments_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListOfContacts">
+      <wsdl:input wsaw:Action="http://tempuri.org/PublicService/GetListOfContacts" message="tns:PublicService_GetListOfContacts_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PublicService/GetListOfContactsResponse" message="tns:PublicService_GetListOfContacts_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListOfRateDetails">
+      <wsdl:input wsaw:Action="http://tempuri.org/PublicService/GetListOfRateDetails" message="tns:PublicService_GetListOfRateDetails_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PublicService/GetListOfRateDetailsResponse" message="tns:PublicService_GetListOfRateDetails_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangeResStatus">
+      <wsdl:input wsaw:Action="http://tempuri.org/PublicService/ChangeResStatus" message="tns:PublicService_ChangeResStatus_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PublicService/ChangeResStatusResponse" message="tns:PublicService_ChangeResStatus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AutoAllocateAreas">
+      <wsdl:input wsaw:Action="http://tempuri.org/PublicService/AutoAllocateAreas" message="tns:PublicService_AutoAllocateAreas_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/PublicService/AutoAllocateAreasResponse" message="tns:PublicService_AutoAllocateAreas_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_PublicService" type="tns:PublicService">
+    <wsp:PolicyReference URI="#BasicHttpBinding_PublicService_policy" />
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="TestCall">
+      <soap:operation soapAction="http://tempuri.org/PublicService/TestCall" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetToken">
+      <soap:operation soapAction="http://tempuri.org/PublicService/GetToken" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetConnectionInfo">
+      <soap:operation soapAction="http://tempuri.org/PublicService/GetConnectionInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPropertyName">
+      <soap:operation soapAction="http://tempuri.org/PublicService/GetPropertyName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSystemLabels">
+      <soap:operation soapAction="http://tempuri.org/PublicService/GetSystemLabels" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListOfSundryCharges">
+      <soap:operation soapAction="http://tempuri.org/PublicService/GetListOfSundryCharges" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListOfSundryChargesDetail">
+      <soap:operation soapAction="http://tempuri.org/PublicService/GetListOfSundryChargesDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListOfGLCodes">
+      <soap:operation soapAction="http://tempuri.org/PublicService/GetListOfGLCodes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListOfGLCodesDetail">
+      <soap:operation soapAction="http://tempuri.org/PublicService/GetListOfGLCodesDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListOfGLGroupHeaders">
+      <soap:operation soapAction="http://tempuri.org/PublicService/GetListOfGLGroupHeaders" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListOfCompanies">
+      <soap:operation soapAction="http://tempuri.org/PublicService/GetListOfCompanies" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListOfCompanies2">
+      <soap:operation soapAction="http://tempuri.org/PublicService/GetListOfCompanies2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListOfProperties">
+      <soap:operation soapAction="http://tempuri.org/PublicService/GetListOfProperties" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListOfAgents">
+      <soap:operation soapAction="http://tempuri.org/PublicService/GetListOfAgents" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListOfPropertiesDetail">
+      <soap:operation soapAction="http://tempuri.org/PublicService/GetListOfPropertiesDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListOfCategories">
+      <soap:operation soapAction="http://tempuri.org/PublicService/GetListOfCategories" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListOfCategoriesDetail">
+      <soap:operation soapAction="http://tempuri.org/PublicService/GetListOfCategoriesDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListOfAreas">
+      <soap:operation soapAction="http://tempuri.org/PublicService/GetListOfAreas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListOfAreasDetail">
+      <soap:operation soapAction="http://tempuri.org/PublicService/GetListOfAreasDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListOfAreasSetup">
+      <soap:operation soapAction="http://tempuri.org/PublicService/GetListOfAreasSetup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListOfCreditCards">
+      <soap:operation soapAction="http://tempuri.org/PublicService/GetListOfCreditCards" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListOfReservations">
+      <soap:operation soapAction="http://tempuri.org/PublicService/GetListOfReservations" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListOfClients">
+      <soap:operation soapAction="http://tempuri.org/PublicService/GetListOfClients" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListOfClientStatus">
+      <soap:operation soapAction="http://tempuri.org/PublicService/GetListOfClientStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListOfClassifications">
+      <soap:operation soapAction="http://tempuri.org/PublicService/GetListOfClassifications" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListOfBookingSources">
+      <soap:operation soapAction="http://tempuri.org/PublicService/GetListOfBookingSources" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListOfResTypes">
+      <soap:operation soapAction="http://tempuri.org/PublicService/GetListOfResTypes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListOfSubResTypes">
+      <soap:operation soapAction="http://tempuri.org/PublicService/GetListOfSubResTypes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMandatoryFields">
+      <soap:operation soapAction="http://tempuri.org/PublicService/GetMandatoryFields" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListOfTitles">
+      <soap:operation soapAction="http://tempuri.org/PublicService/GetListOfTitles" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListOfRegoNumbers">
+      <soap:operation soapAction="http://tempuri.org/PublicService/GetListOfRegoNumbers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListOfPostcodeData">
+      <soap:operation soapAction="http://tempuri.org/PublicService/GetListOfPostcodeData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListOfInvoices">
+      <soap:operation soapAction="http://tempuri.org/PublicService/GetListOfInvoices" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EmailInvoice">
+      <soap:operation soapAction="http://tempuri.org/PublicService/EmailInvoice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListOfTransactions">
+      <soap:operation soapAction="http://tempuri.org/PublicService/GetListOfTransactions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetAreaCleanStatus">
+      <soap:operation soapAction="http://tempuri.org/PublicService/SetAreaCleanStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAvailability">
+      <soap:operation soapAction="http://tempuri.org/PublicService/GetAvailability" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateResNote">
+      <soap:operation soapAction="http://tempuri.org/PublicService/CreateResNote" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateClient">
+      <soap:operation soapAction="http://tempuri.org/PublicService/CreateClient" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetClient">
+      <soap:operation soapAction="http://tempuri.org/PublicService/GetClient" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateClient">
+      <soap:operation soapAction="http://tempuri.org/PublicService/UpdateClient" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveCompany">
+      <soap:operation soapAction="http://tempuri.org/PublicService/SaveCompany" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetBillPending">
+      <soap:operation soapAction="http://tempuri.org/PublicService/SetBillPending" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessTransactions">
+      <soap:operation soapAction="http://tempuri.org/PublicService/ProcessTransactions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AllowedToPostCharge">
+      <soap:operation soapAction="http://tempuri.org/PublicService/AllowedToPostCharge" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AssignAccountNoToClient">
+      <soap:operation soapAction="http://tempuri.org/PublicService/AssignAccountNoToClient" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetPOSEndOfDayDate">
+      <soap:operation soapAction="http://tempuri.org/PublicService/SetPOSEndOfDayDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetBanquetEndOfDayDate">
+      <soap:operation soapAction="http://tempuri.org/PublicService/SetBanquetEndOfDayDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBanquetEndOfDayDate">
+      <soap:operation soapAction="http://tempuri.org/PublicService/GetBanquetEndOfDayDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPOSEndOfDayDate">
+      <soap:operation soapAction="http://tempuri.org/PublicService/GetPOSEndOfDayDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListOfRequirements">
+      <soap:operation soapAction="http://tempuri.org/PublicService/GetListOfRequirements" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveResRequirement">
+      <soap:operation soapAction="http://tempuri.org/PublicService/SaveResRequirement" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListOfUsers">
+      <soap:operation soapAction="http://tempuri.org/PublicService/GetListOfUsers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListOfSecurityProfiles">
+      <soap:operation soapAction="http://tempuri.org/PublicService/GetListOfSecurityProfiles" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListOfRates">
+      <soap:operation soapAction="http://tempuri.org/PublicService/GetListOfRates" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListOfRates2">
+      <soap:operation soapAction="http://tempuri.org/PublicService/GetListOfRates2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListOfAttributes">
+      <soap:operation soapAction="http://tempuri.org/PublicService/GetListOfAttributes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateUser">
+      <soap:operation soapAction="http://tempuri.org/PublicService/CreateUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUser">
+      <soap:operation soapAction="http://tempuri.org/PublicService/UpdateUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveClientDetails">
+      <soap:operation soapAction="http://tempuri.org/PublicService/SaveClientDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveResDetails">
+      <soap:operation soapAction="http://tempuri.org/PublicService/SaveResDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListOfDiscounts">
+      <soap:operation soapAction="http://tempuri.org/PublicService/GetListOfDiscounts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListOfUserMessages">
+      <soap:operation soapAction="http://tempuri.org/PublicService/GetListOfUserMessages" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveUserMessage">
+      <soap:operation soapAction="http://tempuri.org/PublicService/SaveUserMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUserMessage">
+      <soap:operation soapAction="http://tempuri.org/PublicService/DeleteUserMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListOfAuditTrail">
+      <soap:operation soapAction="http://tempuri.org/PublicService/GetListOfAuditTrail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveClientLite">
+      <soap:operation soapAction="http://tempuri.org/PublicService/RetrieveClientLite" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveResLite">
+      <soap:operation soapAction="http://tempuri.org/PublicService/RetrieveResLite" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveTravelAgentLite">
+      <soap:operation soapAction="http://tempuri.org/PublicService/RetrieveTravelAgentLite" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveCompanyLite">
+      <soap:operation soapAction="http://tempuri.org/PublicService/RetrieveCompanyLite" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveBookingSourceLite">
+      <soap:operation soapAction="http://tempuri.org/PublicService/RetrieveBookingSourceLite" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveHeldLite">
+      <soap:operation soapAction="http://tempuri.org/PublicService/RetrieveHeldLite" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveHoldLite">
+      <soap:operation soapAction="http://tempuri.org/PublicService/RetrieveHoldLite" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveTravelAgentDetails">
+      <soap:operation soapAction="http://tempuri.org/PublicService/SaveTravelAgentDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveCompanyDetails">
+      <soap:operation soapAction="http://tempuri.org/PublicService/SaveCompanyDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveBookingSourceDetails">
+      <soap:operation soapAction="http://tempuri.org/PublicService/SaveBookingSourceDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveHeldDetails">
+      <soap:operation soapAction="http://tempuri.org/PublicService/SaveHeldDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveHoldDetails">
+      <soap:operation soapAction="http://tempuri.org/PublicService/SaveHoldDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveDocuments">
+      <soap:operation soapAction="http://tempuri.org/PublicService/SaveDocuments" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListOfMarketSegments">
+      <soap:operation soapAction="http://tempuri.org/PublicService/GetListOfMarketSegments" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListOfContacts">
+      <soap:operation soapAction="http://tempuri.org/PublicService/GetListOfContacts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListOfRateDetails">
+      <soap:operation soapAction="http://tempuri.org/PublicService/GetListOfRateDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangeResStatus">
+      <soap:operation soapAction="http://tempuri.org/PublicService/ChangeResStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AutoAllocateAreas">
+      <soap:operation soapAction="http://tempuri.org/PublicService/AutoAllocateAreas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ServiceLibrary">
+    <wsdl:port name="BasicHttpBinding_PublicService" binding="tns:BasicHttpBinding_PublicService">
+      <soap:address location="https://api.rms.com.au/RMSPublicService/RMSPublicService.ServiceLibrary.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

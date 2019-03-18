@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.RMSPublic.Kiosk.SerialisedClasses" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.RMSPublic.Kiosk.SerialisedClasses" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="https://api.rms.com.au/RMSPublicService/RMSPublicService.ServiceLibrary.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.Data.Manager" />
+  <xs:complexType name="ClientLite">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ActivitiesDisabled" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Addr1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CCToken" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ClientId" type="xs:int" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.Data.Manager" minOccurs="0" name="ClientType" type="q1:Client.ClientType" />
+      <xs:element minOccurs="0" name="CommsPin" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CompanyId" type="xs:int" />
+      <xs:element minOccurs="0" name="ConsentToUseCreditCard" type="xs:boolean" />
+      <xs:element minOccurs="0" name="DateOfBirth" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Given" nillable="true" type="xs:string" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.Data.Manager" minOccurs="0" name="ListOfAllowedActivities" nillable="true" type="q2:ArrayOfClient.Activity" />
+      <xs:element minOccurs="0" name="MembershipNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Mobile" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PhoneAH" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PhoneBH" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PostCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="State" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Surname" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Town" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserDefined11" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserDefined15" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ClientLite" nillable="true" type="tns:ClientLite" />
+</xs:schema>

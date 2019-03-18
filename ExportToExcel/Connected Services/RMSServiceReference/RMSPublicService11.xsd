@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.Utilities.RedConnect" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.Utilities.RedConnect" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:simpleType name="FinancialExtract.InvoiceStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NotSet" />
+      <xs:enumeration value="Paid" />
+      <xs:enumeration value="UnPaid" />
+      <xs:enumeration value="Cancelled" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="FinancialExtract.InvoiceStatus" nillable="true" type="tns:FinancialExtract.InvoiceStatus" />
+</xs:schema>

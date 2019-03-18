@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.Utilities.RedConnect.SerialisedClasses.FinancialExtract" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.Utilities.RedConnect.SerialisedClasses.FinancialExtract" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="https://api.rms.com.au/RMSPublicService/RMSPublicService.ServiceLibrary.svc?xsd=xsd6" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="https://api.rms.com.au/RMSPublicService/RMSPublicService.ServiceLibrary.svc?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.Reservation" />
+  <xs:import schemaLocation="https://api.rms.com.au/RMSPublicService/RMSPublicService.ServiceLibrary.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.Data.Manager" />
+  <xs:import schemaLocation="https://api.rms.com.au/RMSPublicService/RMSPublicService.ServiceLibrary.svc?xsd=xsd10" namespace="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.Utilities.RedConnect" />
+  <xs:complexType name="InvoiceExtractRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CancelledFromDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="CancelledToDate" type="xs:dateTime" />
+      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ClientIds" nillable="true" type="q1:ArrayOfint" />
+      <xs:element minOccurs="0" name="CreatedFromDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="CreatedToDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DateOfNow" type="xs:dateTime" />
+      <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Invoices" nillable="true" type="q2:ArrayOfint" />
+      <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ResIds" nillable="true" type="q3:ArrayOfint" />
+      <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.Reservation" minOccurs="0" name="ResStatus" nillable="true" type="q4:ArrayOfRes.Status" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="InvoiceExtractRequest" nillable="true" type="tns:InvoiceExtractRequest" />
+  <xs:complexType name="InvoiceExtractResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Invoices" nillable="true" type="tns:ArrayOfInvoiceRecord" />
+      <xs:element minOccurs="0" name="RecordsFound" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="InvoiceExtractResponse" nillable="true" type="tns:InvoiceExtractResponse" />
+  <xs:complexType name="ArrayOfInvoiceRecord">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="InvoiceRecord" nillable="true" type="tns:InvoiceRecord" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfInvoiceRecord" nillable="true" type="tns:ArrayOfInvoiceRecord" />
+  <xs:complexType name="InvoiceRecord">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AccId" type="xs:int" />
+      <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.Data.Manager" minOccurs="0" name="AccType" type="q5:Account.AccountType" />
+      <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.Data.Manager" minOccurs="0" name="BillTo" type="q6:Account.BillTo" />
+      <xs:element minOccurs="0" name="CancellationDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ClientId" type="xs:int" />
+      <xs:element minOccurs="0" name="CompId" type="xs:int" />
+      <xs:element minOccurs="0" name="CompanyName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CreationDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GST" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Given" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="InvoiceAmount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="InvoiceNo" type="xs:int" />
+      <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.Utilities.RedConnect" minOccurs="0" name="InvoiceStatus" type="q7:FinancialExtract.InvoiceStatus" />
+      <xs:element minOccurs="0" name="PaymentDate" type="xs:dateTime" />
+      <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.Data.Manager" minOccurs="0" name="PaymentMethod" type="q8:Receipt.ReceiptType" />
+      <xs:element minOccurs="0" name="PropertyId" type="xs:int" />
+      <xs:element minOccurs="0" name="PropertyName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ResId" type="xs:int" />
+      <xs:element minOccurs="0" name="Surname" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="InvoiceRecord" nillable="true" type="tns:InvoiceRecord" />
+</xs:schema>

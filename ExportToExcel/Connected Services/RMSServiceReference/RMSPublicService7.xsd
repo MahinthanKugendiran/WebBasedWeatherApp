@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.Reservation" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.Reservation" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfRes.Status">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Res.Status" type="tns:Res.Status" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRes.Status" nillable="true" type="tns:ArrayOfRes.Status" />
+  <xs:simpleType name="Res.Status">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Unconfirmed" />
+      <xs:enumeration value="Confirmed" />
+      <xs:enumeration value="Arrived" />
+      <xs:enumeration value="Departed" />
+      <xs:enumeration value="Cancelled" />
+      <xs:enumeration value="Maintenance" />
+      <xs:enumeration value="Quote" />
+      <xs:enumeration value="StopSell" />
+      <xs:enumeration value="OwnerOccupied" />
+      <xs:enumeration value="NoShow" />
+      <xs:enumeration value="Pencil" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="Res.Status" nillable="true" type="tns:Res.Status" />
+</xs:schema>

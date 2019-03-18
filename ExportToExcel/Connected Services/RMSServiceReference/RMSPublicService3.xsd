@@ -1,0 +1,1257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="https://api.rms.com.au/RMSPublicService/RMSPublicService.ServiceLibrary.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.RMSPublic.SerialisedClasses" />
+  <xs:import schemaLocation="https://api.rms.com.au/RMSPublicService/RMSPublicService.ServiceLibrary.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.Data.SerialisedClasses" />
+  <xs:import schemaLocation="https://api.rms.com.au/RMSPublicService/RMSPublicService.ServiceLibrary.svc?xsd=xsd6" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="https://api.rms.com.au/RMSPublicService/RMSPublicService.ServiceLibrary.svc?xsd=xsd9" namespace="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.Utilities.RedConnect.SerialisedClasses.FinancialExtract" />
+  <xs:import schemaLocation="https://api.rms.com.au/RMSPublicService/RMSPublicService.ServiceLibrary.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.Data.Manager" />
+  <xs:import schemaLocation="https://api.rms.com.au/RMSPublicService/RMSPublicService.ServiceLibrary.svc?xsd=xsd11" namespace="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.RMSPublic.Kiosk.SerialisedClasses" />
+  <xs:import schemaLocation="https://api.rms.com.au/RMSPublicService/RMSPublicService.ServiceLibrary.svc?xsd=xsd12" namespace="http://schemas.datacontract.org/2004/07/RMS.ExceptionHandler.SerialisedClasses" />
+  <xs:element name="TestCall">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TestCallResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="TestCallResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetToken">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="nRMSClientNo" type="xs:int" />
+        <xs:element minOccurs="0" name="sClientPassword" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="nAgentId" type="xs:int" />
+        <xs:element minOccurs="0" name="sAgentPassword" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="bTrainingDatabase" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTokenResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetTokenResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetConnectionInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.RMSPublic.SerialisedClasses" minOccurs="0" name="oRequest" nillable="true" type="q1:ConnectionInfoRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetConnectionInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.RMSPublic.SerialisedClasses" minOccurs="0" name="GetConnectionInfoResult" nillable="true" type="q2:ConnectionInfoResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPropertyName">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sToken" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPropertyNameResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetPropertyNameResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSystemLabels">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sToken" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSystemLabelsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.Data.SerialisedClasses" minOccurs="0" name="GetSystemLabelsResult" nillable="true" type="q3:SystemLabelsScreenData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListOfSundryCharges">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sToken" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListOfSundryChargesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.Data.SerialisedClasses" minOccurs="0" name="GetListOfSundryChargesResult" nillable="true" type="q4:ArrayOfSundryBasic" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListOfSundryChargesDetail">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sToken" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListOfSundryChargesDetailResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.RMSPublic.SerialisedClasses" minOccurs="0" name="GetListOfSundryChargesDetailResult" nillable="true" type="q5:ArrayOfSundryChargeDetail" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListOfGLCodes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sToken" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListOfGLCodesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.Data.SerialisedClasses" minOccurs="0" name="GetListOfGLCodesResult" nillable="true" type="q6:ArrayOfGLCodeBasic" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListOfGLCodesDetail">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sToken" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListOfGLCodesDetailResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.RMSPublic.SerialisedClasses" minOccurs="0" name="GetListOfGLCodesDetailResult" nillable="true" type="q7:ArrayOfGLCodeDetail" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListOfGLGroupHeaders">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sToken" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListOfGLGroupHeadersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.RMSPublic.SerialisedClasses" minOccurs="0" name="GetListOfGLGroupHeadersResult" nillable="true" type="q8:ArrayOfGLGroupHeader" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListOfCompanies">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sToken" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListOfCompaniesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.Data.SerialisedClasses" minOccurs="0" name="GetListOfCompaniesResult" nillable="true" type="q9:ArrayOfCompanyBasic" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListOfCompanies2">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.RMSPublic.SerialisedClasses" minOccurs="0" name="oRequest" nillable="true" type="q10:GetCompanyRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListOfCompanies2Response">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.RMSPublic.SerialisedClasses" minOccurs="0" name="GetListOfCompanies2Result" nillable="true" type="q11:CompanyResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListOfProperties">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sToken" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListOfPropertiesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.Data.SerialisedClasses" minOccurs="0" name="GetListOfPropertiesResult" nillable="true" type="q12:ArrayOfPropertyBasic" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListOfAgents">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.RMSPublic.SerialisedClasses" minOccurs="0" name="oRequest" nillable="true" type="q13:GetAgentRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListOfAgentsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.RMSPublic.SerialisedClasses" minOccurs="0" name="GetListOfAgentsResult" nillable="true" type="q14:AgentResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListOfPropertiesDetail">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sToken" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListOfPropertiesDetailResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.RMSPublic.SerialisedClasses" minOccurs="0" name="GetListOfPropertiesDetailResult" nillable="true" type="q15:ArrayOfPropertyDetail" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListOfCategories">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q16="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="lstOfPropertyIds" nillable="true" type="q16:ArrayOfint" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListOfCategoriesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.Data.SerialisedClasses" minOccurs="0" name="GetListOfCategoriesResult" nillable="true" type="q17:ArrayOfCategoryBasic" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListOfCategoriesDetail">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.RMSPublic.SerialisedClasses" minOccurs="0" name="oRequest" nillable="true" type="q18:CategoryDetailRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListOfCategoriesDetailResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.RMSPublic.SerialisedClasses" minOccurs="0" name="GetListOfCategoriesDetailResult" nillable="true" type="q19:ArrayOfCategoryDetail" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListOfAreas">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q20="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="lstOfPropertyIds" nillable="true" type="q20:ArrayOfint" />
+        <xs:element xmlns:q21="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="lstOfCatIds" nillable="true" type="q21:ArrayOfint" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListOfAreasResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.Data.SerialisedClasses" minOccurs="0" name="GetListOfAreasResult" nillable="true" type="q22:ArrayOfAreaBasic" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListOfAreasDetail">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.RMSPublic.SerialisedClasses" minOccurs="0" name="oAreaRequest" nillable="true" type="q23:AreaRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListOfAreasDetailResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.RMSPublic.SerialisedClasses" minOccurs="0" name="GetListOfAreasDetailResult" nillable="true" type="q24:ArrayOfAreaDetail" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListOfAreasSetup">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q25="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="lstOfPropertyIds" nillable="true" type="q25:ArrayOfint" />
+        <xs:element xmlns:q26="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="lstOfCatIds" nillable="true" type="q26:ArrayOfint" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListOfAreasSetupResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.Data.SerialisedClasses" minOccurs="0" name="GetListOfAreasSetupResult" nillable="true" type="q27:ArrayOfAreaSetup" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListOfCreditCards">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sToken" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListOfCreditCardsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.Data.SerialisedClasses" minOccurs="0" name="GetListOfCreditCardsResult" nillable="true" type="q28:ArrayOfCreditCardBasic" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListOfReservations">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.RMSPublic.SerialisedClasses" minOccurs="0" name="oResRequest" nillable="true" type="q29:ResRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListOfReservationsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.RMSPublic.SerialisedClasses" minOccurs="0" name="GetListOfReservationsResult" nillable="true" type="q30:ResResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListOfClients">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.RMSPublic.SerialisedClasses" minOccurs="0" name="oGuestRequest" nillable="true" type="q31:ClientRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListOfClientsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.RMSPublic.SerialisedClasses" minOccurs="0" name="GetListOfClientsResult" nillable="true" type="q32:ClientResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListOfClientStatus">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sToken" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListOfClientStatusResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.Data.SerialisedClasses" minOccurs="0" name="GetListOfClientStatusResult" nillable="true" type="q33:ArrayOfStatusBasic" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListOfClassifications">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sToken" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListOfClassificationsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.Data.SerialisedClasses" minOccurs="0" name="GetListOfClassificationsResult" nillable="true" type="q34:ArrayOfClassificationBasic" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListOfBookingSources">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sToken" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListOfBookingSourcesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.Data.SerialisedClasses" minOccurs="0" name="GetListOfBookingSourcesResult" nillable="true" type="q35:ArrayOfBookingSourceBasic" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListOfResTypes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sToken" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListOfResTypesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.Data.SerialisedClasses" minOccurs="0" name="GetListOfResTypesResult" nillable="true" type="q36:ArrayOfResTypeBasic" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListOfSubResTypes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="nParentResTypeId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListOfSubResTypesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.RMSPublic.SerialisedClasses" minOccurs="0" name="GetListOfSubResTypesResult" nillable="true" type="q37:ArrayOfSubResType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMandatoryFields">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sToken" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMandatoryFieldsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q38="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.RMSPublic.SerialisedClasses" minOccurs="0" name="GetMandatoryFieldsResult" nillable="true" type="q38:MandatoryFields" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListOfTitles">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sToken" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListOfTitlesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q39="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.Data.SerialisedClasses" minOccurs="0" name="GetListOfTitlesResult" nillable="true" type="q39:ArrayOfTitleBasic" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListOfRegoNumbers">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q40="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.RMSPublic.SerialisedClasses" minOccurs="0" name="oRegoRequest" nillable="true" type="q40:RegoNumbersRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListOfRegoNumbersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q41="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.RMSPublic.SerialisedClasses" minOccurs="0" name="GetListOfRegoNumbersResult" nillable="true" type="q41:ArrayOfRegoNumbersResults" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListOfPostcodeData">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q42="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.RMSPublic.SerialisedClasses" minOccurs="0" name="oRegoRequest" nillable="true" type="q42:PostcodeLookupRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListOfPostcodeDataResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q43="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.RMSPublic.SerialisedClasses" minOccurs="0" name="GetListOfPostcodeDataResult" nillable="true" type="q43:ArrayOfPostcodeLookupResults" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListOfInvoices">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q44="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.Utilities.RedConnect.SerialisedClasses.FinancialExtract" minOccurs="0" name="oRequest" nillable="true" type="q44:InvoiceExtractRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListOfInvoicesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q45="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.Utilities.RedConnect.SerialisedClasses.FinancialExtract" minOccurs="0" name="GetListOfInvoicesResult" nillable="true" type="q45:InvoiceExtractResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EmailInvoice">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q46="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.RMSPublic.SerialisedClasses" minOccurs="0" name="oRequest" nillable="true" type="q46:EmailInvoiceRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EmailInvoiceResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q47="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.RMSPublic.SerialisedClasses" minOccurs="0" name="EmailInvoiceResult" nillable="true" type="q47:EmailInvoiceResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListOfTransactions">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q48="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.RMSPublic.SerialisedClasses" minOccurs="0" name="oTransRequest" nillable="true" type="q48:TransListRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListOfTransactionsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q49="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.RMSPublic.SerialisedClasses" minOccurs="0" name="GetListOfTransactionsResult" nillable="true" type="q49:TransListResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetAreaCleanStatus">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q50="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="nlstOfAreaId" nillable="true" type="q50:ArrayOfint" />
+        <xs:element xmlns:q51="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.Data.Manager" minOccurs="0" name="nCleanStatus" type="q51:Area.CleanStatus" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetAreaCleanStatusResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SetAreaCleanStatusResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAvailability">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q52="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.RMSPublic.SerialisedClasses" minOccurs="0" name="oAvailRequest" nillable="true" type="q52:AvailabilityRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAvailabilityResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q53="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.RMSPublic.SerialisedClasses" minOccurs="0" name="GetAvailabilityResult" nillable="true" type="q53:ArrayOfAvailabilityResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateResNote">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q54="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.RMSPublic.SerialisedClasses" minOccurs="0" name="oRequest" nillable="true" type="q54:CreateResNoteRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateResNoteResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CreateResNoteResult" type="xs:boolean" />
+        <xs:element xmlns:q55="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.RMSPublic.SerialisedClasses" minOccurs="0" name="oRequest" nillable="true" type="q55:CreateResNoteRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateClient">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q56="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.RMSPublic.Kiosk.SerialisedClasses" minOccurs="0" name="oClient" nillable="true" type="q56:ClientLite" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateClientResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CreateClientResult" type="xs:int" />
+        <xs:element xmlns:q57="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.RMSPublic.Kiosk.SerialisedClasses" minOccurs="0" name="oClient" nillable="true" type="q57:ClientLite" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetClient">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="nClientId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetClientResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q58="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.RMSPublic.Kiosk.SerialisedClasses" minOccurs="0" name="GetClientResult" nillable="true" type="q58:ClientLite" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateClient">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q59="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.RMSPublic.Kiosk.SerialisedClasses" minOccurs="0" name="oClient" nillable="true" type="q59:ClientLite" />
+        <xs:element minOccurs="0" name="dDateOfNow" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateClientResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateClientResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveCompany">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q60="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.RMSPublic.SerialisedClasses" minOccurs="0" name="oRequest" nillable="true" type="q60:SaveCompanyRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveCompanyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q61="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.RMSPublic.SerialisedClasses" minOccurs="0" name="SaveCompanyResult" nillable="true" type="q61:CompanyLite" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetBillPending">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q62="http://schemas.datacontract.org/2004/07/RMS.ExceptionHandler.SerialisedClasses" minOccurs="0" name="oFault" nillable="true" type="q62:Fault" />
+        <xs:element minOccurs="0" name="sToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="nResId" type="xs:int" />
+        <xs:element minOccurs="0" name="bPending" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetBillPendingResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SetBillPendingResult" type="xs:boolean" />
+        <xs:element xmlns:q63="http://schemas.datacontract.org/2004/07/RMS.ExceptionHandler.SerialisedClasses" minOccurs="0" name="oFault" nillable="true" type="q63:Fault" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProcessTransactions">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q64="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.RMSPublic.SerialisedClasses" minOccurs="0" name="oRequest" nillable="true" type="q64:TransactionRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProcessTransactionsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q65="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.RMSPublic.SerialisedClasses" minOccurs="0" name="ProcessTransactionsResult" nillable="true" type="q65:TransactionResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AllowedToPostCharge">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q66="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.RMSPublic.SerialisedClasses" minOccurs="0" name="oRequest" nillable="true" type="q66:AllowedToPostChargeRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AllowedToPostChargeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q67="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.RMSPublic.SerialisedClasses" minOccurs="0" name="AllowedToPostChargeResult" nillable="true" type="q67:AllowedToPostChargeResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AssignAccountNoToClient">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="nClientId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AssignAccountNoToClientResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AssignAccountNoToClientResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetPOSEndOfDayDate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="nPropertyId" type="xs:int" />
+        <xs:element minOccurs="0" name="dPOSEndOfDayDate" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetPOSEndOfDayDateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SetPOSEndOfDayDateResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetBanquetEndOfDayDate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="nPropertyId" type="xs:int" />
+        <xs:element minOccurs="0" name="dBanquetEndOfDayDate" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetBanquetEndOfDayDateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SetBanquetEndOfDayDateResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBanquetEndOfDayDate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="nPropertyId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBanquetEndOfDayDateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetBanquetEndOfDayDateResult" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPOSEndOfDayDate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="nPropertyId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPOSEndOfDayDateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetPOSEndOfDayDateResult" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListOfRequirements">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="nPropertyId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListOfRequirementsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q68="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.RMSPublic.SerialisedClasses" minOccurs="0" name="GetListOfRequirementsResult" nillable="true" type="q68:ArrayOfRequirementSetup" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveResRequirement">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q69="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.RMSPublic.SerialisedClasses" minOccurs="0" name="oRequest" nillable="true" type="q69:SaveResRequirementRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveResRequirementResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q70="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.RMSPublic.SerialisedClasses" minOccurs="0" name="SaveResRequirementResult" nillable="true" type="q70:RequirementLite" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListOfUsers">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sToken" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListOfUsersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q71="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.RMSPublic.SerialisedClasses" minOccurs="0" name="GetListOfUsersResult" nillable="true" type="q71:ArrayOfUserDetail" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListOfSecurityProfiles">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sToken" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListOfSecurityProfilesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q72="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.RMSPublic.SerialisedClasses" minOccurs="0" name="GetListOfSecurityProfilesResult" nillable="true" type="q72:ArrayOfSecurityProfile" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListOfRates">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sToken" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListOfRatesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q73="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.RMSPublic.SerialisedClasses" minOccurs="0" name="GetListOfRatesResult" nillable="true" type="q73:ArrayOfRate" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListOfRates2">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q74="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.RMSPublic.SerialisedClasses" minOccurs="0" name="oRequest" nillable="true" type="q74:GetRateRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListOfRates2Response">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q75="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.RMSPublic.SerialisedClasses" minOccurs="0" name="GetListOfRates2Result" nillable="true" type="q75:RateResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListOfAttributes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sToken" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListOfAttributesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q76="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.RMSPublic.SerialisedClasses" minOccurs="0" name="GetListOfAttributesResult" nillable="true" type="q76:ArrayOfAttribute" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q77="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.RMSPublic.SerialisedClasses" minOccurs="0" name="oClient" nillable="true" type="q77:UserDetail" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CreateUserResult" type="xs:int" />
+        <xs:element xmlns:q78="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.RMSPublic.SerialisedClasses" minOccurs="0" name="oClient" nillable="true" type="q78:UserDetail" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q79="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.RMSPublic.SerialisedClasses" minOccurs="0" name="oClient" nillable="true" type="q79:UserDetail" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateUserResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveClientDetails">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q80="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.RMSPublic.SerialisedClasses" minOccurs="0" name="oRequest" nillable="true" type="q80:SaveClientRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveClientDetailsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q81="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.RMSPublic.SerialisedClasses" minOccurs="0" name="SaveClientDetailsResult" nillable="true" type="q81:ClientLite" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveResDetails">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q82="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.RMSPublic.SerialisedClasses" minOccurs="0" name="oRequest" nillable="true" type="q82:SaveResRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveResDetailsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q83="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.RMSPublic.SerialisedClasses" minOccurs="0" name="SaveResDetailsResult" nillable="true" type="q83:ArrayOfSaveResResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListOfDiscounts">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sToken" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListOfDiscountsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q84="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.RMSPublic.SerialisedClasses" minOccurs="0" name="GetListOfDiscountsResult" nillable="true" type="q84:ArrayOfDiscount" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListOfUserMessages">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q85="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.RMSPublic.SerialisedClasses" minOccurs="0" name="oRequest" nillable="true" type="q85:UserMessageRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListOfUserMessagesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q86="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.RMSPublic.SerialisedClasses" minOccurs="0" name="GetListOfUserMessagesResult" nillable="true" type="q86:ArrayOfUserMessage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveUserMessage">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q87="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.RMSPublic.SerialisedClasses" minOccurs="0" name="oRequest" nillable="true" type="q87:SaveUserMessageRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveUserMessageResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q88="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.RMSPublic.SerialisedClasses" minOccurs="0" name="SaveUserMessageResult" nillable="true" type="q88:UserMessage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteUserMessage">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sToken" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="nMessageId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteUserMessageResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteUserMessageResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListOfAuditTrail">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q89="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.RMSPublic.SerialisedClasses" minOccurs="0" name="oRequest" nillable="true" type="q89:AuditTrailRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListOfAuditTrailResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q90="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.RMSPublic.SerialisedClasses" minOccurs="0" name="GetListOfAuditTrailResult" nillable="true" type="q90:ArrayOfAuditTrailRecord" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RetrieveClientLite">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q91="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="lstClientIds" nillable="true" type="q91:ArrayOfint" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RetrieveClientLiteResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q92="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.RMSPublic.SerialisedClasses" minOccurs="0" name="RetrieveClientLiteResult" nillable="true" type="q92:ArrayOfClientLite" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RetrieveResLite">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q93="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="lstResIds" nillable="true" type="q93:ArrayOfint" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RetrieveResLiteResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q94="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.RMSPublic.SerialisedClasses" minOccurs="0" name="RetrieveResLiteResult" nillable="true" type="q94:ArrayOfResLite" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RetrieveTravelAgentLite">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q95="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="lstAgentIds" nillable="true" type="q95:ArrayOfint" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RetrieveTravelAgentLiteResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q96="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.RMSPublic.SerialisedClasses" minOccurs="0" name="RetrieveTravelAgentLiteResult" nillable="true" type="q96:ArrayOfTravelAgentLite" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RetrieveCompanyLite">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q97="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="lstCompanyIds" nillable="true" type="q97:ArrayOfint" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RetrieveCompanyLiteResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q98="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.RMSPublic.SerialisedClasses" minOccurs="0" name="RetrieveCompanyLiteResult" nillable="true" type="q98:ArrayOfCompanyLite" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RetrieveBookingSourceLite">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q99="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="lstBookingSourceIds" nillable="true" type="q99:ArrayOfint" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RetrieveBookingSourceLiteResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q100="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.RMSPublic.SerialisedClasses" minOccurs="0" name="RetrieveBookingSourceLiteResult" nillable="true" type="q100:ArrayOfBookingSourceLite" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RetrieveHeldLite">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q101="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="lstHeldIds" nillable="true" type="q101:ArrayOfint" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RetrieveHeldLiteResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q102="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.RMSPublic.SerialisedClasses" minOccurs="0" name="RetrieveHeldLiteResult" nillable="true" type="q102:ArrayOfHeldLite" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RetrieveHoldLite">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q103="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="lstHoldIds" nillable="true" type="q103:ArrayOfint" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RetrieveHoldLiteResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q104="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.RMSPublic.SerialisedClasses" minOccurs="0" name="RetrieveHoldLiteResult" nillable="true" type="q104:ArrayOfHoldLite" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveTravelAgentDetails">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q105="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.RMSPublic.SerialisedClasses" minOccurs="0" name="oRequest" nillable="true" type="q105:SaveTravelAgentRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveTravelAgentDetailsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q106="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.RMSPublic.SerialisedClasses" minOccurs="0" name="SaveTravelAgentDetailsResult" nillable="true" type="q106:TravelAgentLite" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveCompanyDetails">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q107="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.RMSPublic.SerialisedClasses" minOccurs="0" name="oRequest" nillable="true" type="q107:SaveCompanyRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveCompanyDetailsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q108="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.RMSPublic.SerialisedClasses" minOccurs="0" name="SaveCompanyDetailsResult" nillable="true" type="q108:CompanyLite" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveBookingSourceDetails">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q109="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.RMSPublic.SerialisedClasses" minOccurs="0" name="oRequest" nillable="true" type="q109:SaveBookingSourceRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveBookingSourceDetailsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q110="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.RMSPublic.SerialisedClasses" minOccurs="0" name="SaveBookingSourceDetailsResult" nillable="true" type="q110:BookingSourceLite" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveHeldDetails">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q111="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.RMSPublic.SerialisedClasses" minOccurs="0" name="oRequest" nillable="true" type="q111:SaveHeldRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveHeldDetailsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q112="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.RMSPublic.SerialisedClasses" minOccurs="0" name="SaveHeldDetailsResult" nillable="true" type="q112:HeldLite" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveHoldDetails">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q113="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.RMSPublic.SerialisedClasses" minOccurs="0" name="oRequest" nillable="true" type="q113:SaveHoldRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveHoldDetailsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q114="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.RMSPublic.SerialisedClasses" minOccurs="0" name="SaveHoldDetailsResult" nillable="true" type="q114:HoldLite" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveDocuments">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q115="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.RMSPublic.SerialisedClasses" minOccurs="0" name="oRequest" nillable="true" type="q115:SaveDocumentRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveDocumentsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q116="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.RMSPublic.SerialisedClasses" minOccurs="0" name="SaveDocumentsResult" nillable="true" type="q116:DocumentResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListOfMarketSegments">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sToken" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListOfMarketSegmentsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q117="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.RMSPublic.SerialisedClasses" minOccurs="0" name="GetListOfMarketSegmentsResult" nillable="true" type="q117:ArrayOfMarketSegment" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListOfContacts">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sToken" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListOfContactsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q118="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.RMSPublic.SerialisedClasses" minOccurs="0" name="GetListOfContactsResult" nillable="true" type="q118:ArrayOfContactDetail" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListOfRateDetails">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q119="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.RMSPublic.SerialisedClasses" minOccurs="0" name="oRequest" nillable="true" type="q119:RateDetailRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListOfRateDetailsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q120="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.RMSPublic.SerialisedClasses" minOccurs="0" name="GetListOfRateDetailsResult" nillable="true" type="q120:ArrayOfRateDetail" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ChangeResStatus">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q121="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.RMSPublic.SerialisedClasses" minOccurs="0" name="oRequest" nillable="true" type="q121:ResStatusChangeRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ChangeResStatusResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q122="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.RMSPublic.SerialisedClasses" minOccurs="0" name="ChangeResStatusResult" nillable="true" type="q122:ResStatusChangeResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AutoAllocateAreas">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sToken" nillable="true" type="xs:string" />
+        <xs:element xmlns:q123="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="lstResIds" nillable="true" type="q123:ArrayOfint" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AutoAllocateAreasResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q124="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.RMSPublic.SerialisedClasses" minOccurs="0" name="AutoAllocateAreasResult" nillable="true" type="q124:ArrayOfAutoAllocateAreaResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

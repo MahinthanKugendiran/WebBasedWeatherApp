@@ -1,0 +1,392 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.RMSPublic" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/RMS.FunctionLibrary.RMSPublic" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="https://api.rms.com.au/RMSPublicService/RMSPublicService.ServiceLibrary.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:simpleType name="Functions.GroupHeadingType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="All">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="GLAccCode">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">0</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Areas">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="BookingSource">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Tasks">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">3</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Sundry">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">4</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ChargeType">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">5</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Country">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">6</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ContactPhoneDirectory">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">7</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ClientSpecialEvent">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">8</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Company">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">9</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Category">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">10</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Inventory">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">11</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Properties">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">12</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Requirements">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">13</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="DirectDebit">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">14</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="Functions.GroupHeadingType" nillable="true" type="tns:Functions.GroupHeadingType" />
+  <xs:simpleType name="Functions.DynamicPricingOption">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="UseRoomType" />
+      <xs:enumeration value="UseProperty" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="Functions.DynamicPricingOption" nillable="true" type="tns:Functions.DynamicPricingOption" />
+  <xs:simpleType name="Functions.YesNoNotSet">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NotSet" />
+      <xs:enumeration value="Yes" />
+      <xs:enumeration value="No" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="Functions.YesNoNotSet" nillable="true" type="tns:Functions.YesNoNotSet" />
+  <xs:simpleType name="Functions.IncludeGroupMasters">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ExcludeGroupMasters" />
+      <xs:enumeration value="IncludeGroupMasters" />
+      <xs:enumeration value="OnlyGroupMasters" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="Functions.IncludeGroupMasters" nillable="true" type="tns:Functions.IncludeGroupMasters" />
+  <xs:simpleType name="Functions.AccountType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NotSet" />
+      <xs:enumeration value="Accomm" />
+      <xs:enumeration value="Extras" />
+      <xs:enumeration value="Pabx" />
+      <xs:enumeration value="Gas" />
+      <xs:enumeration value="Electricity" />
+      <xs:enumeration value="Water" />
+      <xs:enumeration value="CashAccount" />
+      <xs:enumeration value="Internet" />
+      <xs:enumeration value="ClientAccount" />
+      <xs:enumeration value="TravelAgent" />
+      <xs:enumeration value="OwnersAccount" />
+      <xs:enumeration value="ARView" />
+      <xs:enumeration value="Notional" />
+      <xs:enumeration value="Holding" />
+      <xs:enumeration value="Other">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="Functions.AccountType" nillable="true" type="tns:Functions.AccountType" />
+  <xs:simpleType name="Functions.BillToType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NotSet" />
+      <xs:enumeration value="Client" />
+      <xs:enumeration value="Company" />
+      <xs:enumeration value="TravelAgent" />
+      <xs:enumeration value="GroupName" />
+      <xs:enumeration value="Wholesaler" />
+      <xs:enumeration value="Other">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="Functions.BillToType" nillable="true" type="tns:Functions.BillToType" />
+  <xs:simpleType name="Functions.BookingType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Accommodation" />
+      <xs:enumeration value="Event" />
+      <xs:enumeration value="PartOfGhost" />
+      <xs:enumeration value="Maintenance" />
+      <xs:enumeration value="BlockingRes" />
+      <xs:enumeration value="BedReservation" />
+      <xs:enumeration value="Parked" />
+      <xs:enumeration value="RoomMoveHeader" />
+      <xs:enumeration value="Other">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="Functions.BookingType" nillable="true" type="tns:Functions.BookingType" />
+  <xs:simpleType name="Functions.ResultCode">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="UnknownError" />
+      <xs:enumeration value="Success" />
+      <xs:enumeration value="NoMatches">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">10</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="TooManyMatches">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">11</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="Functions.ResultCode" nillable="true" type="tns:Functions.ResultCode" />
+  <xs:simpleType name="Functions.AccessType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="InOnly" />
+      <xs:enumeration value="OutOnly" />
+      <xs:enumeration value="InOut" />
+      <xs:enumeration value="InOutWithAntiPassback" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="Functions.AccessType" nillable="true" type="tns:Functions.AccessType" />
+  <xs:simpleType name="Functions.Status">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="InThePark" />
+      <xs:enumeration value="OutOfThePark" />
+      <xs:enumeration value="NotSure" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="Functions.Status" nillable="true" type="tns:Functions.Status" />
+  <xs:simpleType name="Functions.Country">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Australia">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">13</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="NewZealand">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">152</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="UK">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">218</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="Functions.Country" nillable="true" type="tns:Functions.Country" />
+  <xs:simpleType name="Functions.LookupPostcodeBy">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Postcode" />
+      <xs:enumeration value="Town" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="Functions.LookupPostcodeBy" nillable="true" type="tns:Functions.LookupPostcodeBy" />
+  <xs:simpleType name="Functions.TransListRecordType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NotSet" />
+      <xs:enumeration value="Charge" />
+      <xs:enumeration value="Receipt" />
+      <xs:enumeration value="Discount" />
+      <xs:enumeration value="CreditNote" />
+      <xs:enumeration value="Refund" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="Functions.TransListRecordType" nillable="true" type="tns:Functions.TransListRecordType" />
+  <xs:simpleType name="Functions.TransactionSource">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NotSet" />
+      <xs:enumeration value="PointOfSale" />
+      <xs:enumeration value="Kiosk" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="Functions.TransactionSource" nillable="true" type="tns:Functions.TransactionSource" />
+  <xs:simpleType name="Functions.TransactionType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NotSet" />
+      <xs:enumeration value="Charge" />
+      <xs:enumeration value="Receipt" />
+      <xs:enumeration value="Refund" />
+      <xs:enumeration value="CreditNote" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="Functions.TransactionType" nillable="true" type="tns:Functions.TransactionType" />
+  <xs:simpleType name="Functions.UserType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="StandardUser" />
+      <xs:enumeration value="RMSAdminUser" />
+      <xs:enumeration value="RMSStaff" />
+      <xs:enumeration value="AvailMapUser" />
+      <xs:enumeration value="PublicUsers" />
+      <xs:enumeration value="Manager" />
+      <xs:enumeration value="Housekeeper" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="Functions.UserType" nillable="true" type="tns:Functions.UserType" />
+  <xs:simpleType name="Functions.RateStructure">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Direct" />
+      <xs:enumeration value="OTA" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="Functions.RateStructure" nillable="true" type="tns:Functions.RateStructure" />
+  <xs:simpleType name="Functions.RateType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Standard" />
+      <xs:enumeration value="Linked" />
+      <xs:enumeration value="Master" />
+      <xs:enumeration value="BARMulti" />
+      <xs:enumeration value="Other">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="Functions.RateType" nillable="true" type="tns:Functions.RateType" />
+  <xs:complexType name="ArrayOfFunctions.MessageStatus">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Functions.MessageStatus" type="tns:Functions.MessageStatus" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfFunctions.MessageStatus" nillable="true" type="tns:ArrayOfFunctions.MessageStatus" />
+  <xs:simpleType name="Functions.MessageStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NotRead" />
+      <xs:enumeration value="HasBeenRead" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="Functions.MessageStatus" nillable="true" type="tns:Functions.MessageStatus" />
+  <xs:complexType name="ArrayOfFunctions.MessageWhenToAction">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Functions.MessageWhenToAction" type="tns:Functions.MessageWhenToAction" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfFunctions.MessageWhenToAction" nillable="true" type="tns:ArrayOfFunctions.MessageWhenToAction" />
+  <xs:simpleType name="Functions.MessageWhenToAction">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Reservation" />
+      <xs:enumeration value="CheckIn" />
+      <xs:enumeration value="CheckOut" />
+      <xs:enumeration value="Confirmation">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">4</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Cancellation">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">5</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="Functions.MessageWhenToAction" nillable="true" type="tns:Functions.MessageWhenToAction" />
+  <xs:simpleType name="Functions.PackageLink">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="RateType" />
+      <xs:enumeration value="Charge" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="Functions.PackageLink" nillable="true" type="tns:Functions.PackageLink" />
+</xs:schema>
